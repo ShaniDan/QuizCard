@@ -128,6 +128,8 @@
 			dependencies = (
 			);
 			name = QuizCard;
+			packageProductDependencies = (
+			);
 			productName = QuizCard;
 			productReference = 25D2D6362A7D927A007B10A9 /* QuizCard.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +158,8 @@
 				Base,
 			);
 			mainGroup = 25D2D62D2A7D927A007B10A9;
+			packageReferences = (
+			);
 			productRefGroup = 25D2D6372A7D927A007B10A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

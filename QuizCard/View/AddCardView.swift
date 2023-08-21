@@ -5,6 +5,7 @@
 //  Created by Shakhnoza Mirabzalova on 8/4/23.
 //
 
+import OpenAISwift
 import SwiftUI
 
 struct AddCardView: View {
@@ -18,10 +19,10 @@ struct AddCardView: View {
     
     init(set: Binding<FlashcardSet>, mainViewModel: CardViewModel) {
         _set = set
-//        _set = State(initialValue: set)
         self.mainViewModel = mainViewModel
     }
     
+        
     var body: some View {
             VStack {
                 HStack {
@@ -66,6 +67,12 @@ struct AddCardView: View {
                             )
                     }
                     .padding()
+                }
+                
+                Button {
+                    
+                } label: {
+                   Text("Get Answer from AI")
                 }
             }
     }

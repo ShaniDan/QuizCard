@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class CardViewModel: ObservableObject {
     
     private static var myKey: String = "myKey"
@@ -120,15 +119,6 @@ class CardViewModel: ObservableObject {
         cardSets = CardViewModel.getSets()
     }
     
-//    func totalCharacterCount() -> Int {
-//           var count = 0
-//           for cardSet in cardSets {
-//               for flashCard in cardSet.flashCards {
-//                   count += flashCard.question.count
-//                   count += flashCard.answer.count
-//               }
-//           }
-//           return count
-//       }
+    
 }
 
