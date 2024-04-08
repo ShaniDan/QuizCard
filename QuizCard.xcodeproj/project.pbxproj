@@ -67,7 +67,6 @@
 			children = (
 				25D2D6392A7D927A007B10A9 /* QuizCardApp.swift */,
 				25D2D64E2A7D92A8007B10A9 /* Model */,
-				25D2D64D2A7D929E007B10A9 /* View */,
 				25D2D64C2A7D928E007B10A9 /* ViewModel */,
 				25D2D63D2A7D927B007B10A9 /* Assets.xcassets */,
 				25D2D6422A7D927B007B10A9 /* Persistence.swift */,
@@ -107,6 +106,7 @@
 		25D2D64E2A7D92A8007B10A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25D2D64D2A7D929E007B10A9 /* View */,
 				25D2D64F2A7D92C3007B10A9 /* CardModel.swift */,
 			);
 			path = Model;
@@ -339,9 +339,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shanimir.QuizCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -369,9 +372,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shanimir.QuizCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

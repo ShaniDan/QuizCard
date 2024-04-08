@@ -20,7 +20,7 @@ class CardViewModel: ObservableObject {
     private static func save(_ sets: [FlashcardSet]) {
         if let data = try? JSONEncoder().encode(sets) {
             UserDefaults.standard.set(data, forKey: myKey
-    )
+            )
             print("Card sets saved to UserDefaults")
         }
     }
@@ -42,7 +42,7 @@ class CardViewModel: ObservableObject {
         print("New card set added: \(cardSet)")
         return cardSet.id
     }
-
+    
     func add(card: CardModel, to id: UUID?) {
         guard let id = id, let index = allFlashcardSets.firstIndex(where: { $0.id == id }) else { return }
         var cardSet = cardSets.remove(at: index)
@@ -58,23 +58,8 @@ class CardViewModel: ObservableObject {
         cardSets.first(where: { $0.id == id })
     }
     
-//    func textCharCount() {
-//
-//        var countQ = 0
-//        var countA = 0
-//        for card1 in cardSets {
-//            for card2 in card1.flashCards {
-//                countQ += card2.question.count
-//                countA += card2.answer.count
-//            }
-//        }
-//        print("total characters count in a Question is \(countQ)")
-//        print("total characters count in an Answer is \(countA)")
-//    }
-    
-    
     // MARK: Update function
-
+    
     func updateCardSet(cardSetID: UUID, newName: String) -> UUID? {
         guard let cardSetIndex = cardSets.firstIndex(where: { $0.id == cardSetID }) else {
             return nil
@@ -114,11 +99,18 @@ class CardViewModel: ObservableObject {
         cardSets[cardSetIndex].flashCards.remove(atOffsets: offsets)
         return cardSets[cardSetIndex]
     }
-    
-    func loadCardSets() {
-        cardSets = CardViewModel.getSets()
-    }
-    
-    
-}
 
+    private var keys: NSDictionary?
+    
+    func setup() {
+    }
+    func send(text: String, completion: @escaping (String) -> Void) {
+
+        print("working")
+    }
+                               
+    func loadCardSets() {
+            cardSets = CardViewModel.getSets()
+        }
+    }
+                               

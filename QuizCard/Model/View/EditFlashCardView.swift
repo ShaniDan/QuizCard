@@ -25,10 +25,25 @@ struct EditFlashcardView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 List {
-                    ForEach(0..<set.flashCards.count, id: \.self) { index in
+                    ForEach(set.flashCards.indices, id: \.self) { index in
                         VStack {
-                            TextField("Question", text: $set.flashCards[index].question)
-                            TextField("Answer", text: $set.flashCards[index].answer)
+                            HStack {
+                                Text("\(index + 1)")
+                                TextEditor(text: $set.flashCards[index].question)
+                                        .frame(height: 100)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(.gray.opacity(0.2), lineWidth: 2)
+                                        )
+                                TextEditor(text: $set.flashCards[index].answer)
+                                    .frame(height: 100)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(.gray.opacity(0.2), lineWidth: 2)
+                                    )
+                            }
+                            
+                            
                         }
                     }
                     .onDelete { indices in

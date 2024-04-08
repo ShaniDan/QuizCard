@@ -10,6 +10,7 @@ import SwiftUI
 struct FlashcardView: View {
     @State private var flippedCards: [Bool] = []
     @State var set: FlashcardSet
+    @State private var isLinkActive = false
     @ObservedObject var mainViewModel: CardViewModel    
     
     init(set: FlashcardSet, mainViewModel: CardViewModel) {
@@ -33,32 +34,40 @@ struct FlashcardView: View {
                         .foregroundColor(Color("Color 2"))
                         .padding()
                     
-                    Text("Flashcards you add appear here")
+                    Text("Here, you'll find your added flashcards. Feel free to input flashcard answers manually or obtain them from AI.")
                         .font(.title3)
                         .foregroundColor(Color("Dark Slate Gray"))
                         .bold()
+                        .multilineTextAlignment(.leading)
+                        .padding()
                 }
             } else {
                 VStack { ScrollView(.vertical) {
                     LazyVGrid(columns: [GridItem(.flexible())]) {
                         ForEach(set.flashCards) { flashcard in
-                            ZStack {
+                           ZStack {
                                 Rectangle()
                                     .fill(flashcard.flipped ? Color("Color 2") : Color("Color 1"))
                                     .frame(width: 350, height: 300)
                                     .cornerRadius(15)
                                     .rotation3DEffect(.degrees(flashcard.flipped ? 180 : 0), axis: (x: 0.0, y: 1.0, z: 0.0))
-                                    
-                                Text(flashcard.flipped ? flashcard.answer : flashcard.question)
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .rotation3DEffect(.degrees(flashcard.flipped ? 180 : 0), axis: (x: 0.0, y: 0.0, z: 0.0))
-                                    .frame(width: 330, height: 290)
+                                
+                                ScrollView(.vertical) {
+                                    Text(flashcard.flipped ? flashcard.answer : flashcard.question)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .rotation3DEffect(.degrees(flashcard.flipped ? 180 : 0), axis: (x: 0.0, y: 0.0, z: 0.0))
+                                        .multilineTextAlignment(.leading)
+                                        .frame(minWidth: 310, minHeight: 270)
+                                        .padding()
+                                }
+                                .frame(width: 330, height: 290)
+                                
                             }
                             .padding()
                             .onTapGesture {
                                 withAnimation {
-                                   // index of the tapped card
+                                    // index of the tapped card
                                     if let index = set.flashCards.firstIndex(of: flashcard) {
                                         set.flashCards[index].flipped.toggle()
                                         // all the other cards unflipped state
@@ -70,6 +79,9 @@ struct FlashcardView: View {
                                     }
                                 }
                             }
+//                            .onLongPressGesture(minimumDuration: 0.1) {
+//                                isLinkActive = true
+//                            }
                         }
                     }
                 }
@@ -78,7 +90,7 @@ struct FlashcardView: View {
             }
             Spacer()
             NavigationLink(destination: AddCardView(set: $set, mainViewModel: mainViewModel), label: {
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: 40)
                     .frame(width: 330, height: 55)
                     .foregroundColor(Color("Color 2"))
                     .overlay(

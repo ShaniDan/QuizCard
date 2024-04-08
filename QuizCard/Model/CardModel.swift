@@ -12,6 +12,7 @@ struct CardModel : Codable, Identifiable, Hashable {
     var question : String
     var answer : String
     var flipped = false
+    
 }
 
 // A struct to store one FlashCard set's data
