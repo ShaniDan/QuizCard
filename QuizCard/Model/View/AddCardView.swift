@@ -92,7 +92,7 @@ struct AddCardView: View {
                         .frame(width: 330, height: 55)
                         .foregroundColor(Color("Color 2"))
                         .overlay(
-                            Text("Get Answer from AI")
+                            Text("Save")
                                 .foregroundColor(.white)
                                 .bold()
                         )

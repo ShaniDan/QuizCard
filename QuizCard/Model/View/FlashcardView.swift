@@ -79,9 +79,6 @@ struct FlashcardView: View {
                                     }
                                 }
                             }
-//                            .onLongPressGesture(minimumDuration: 0.1) {
-//                                isLinkActive = true
-//                            }
                         }
                     }
                 }
